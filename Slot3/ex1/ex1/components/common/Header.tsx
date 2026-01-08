@@ -63,7 +63,7 @@ export function NavigationMenuDemo() {
       <NavigationMenuList        className="
           flex w-full items-center
           justify-center          /* căn giữa menu */
-          gap-150                 /* khoảng cách rõ ràng */
+          gap-100                  /* khoảng cách rõ ràng */
           text-lg                 /* CHỮ TO */
           font-semibold
         ">
