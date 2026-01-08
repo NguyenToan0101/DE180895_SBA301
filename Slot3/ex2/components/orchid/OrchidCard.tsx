@@ -64,7 +64,7 @@ export default function OrchidCard({ orchid }: Props) {
               <DialogTitle>{orchid.name}</DialogTitle>
             </DialogHeader>
 
-            {/* Dialog content */}
+            {/* Modal content */}
             <div className="grid md:grid-cols-2 gap-6">
               {/* Image */}
               <div className="relative w-full h-64 rounded-lg overflow-hidden">

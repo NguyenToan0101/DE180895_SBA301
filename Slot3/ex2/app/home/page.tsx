@@ -1,4 +1,12 @@
-
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import OrchidCard from "@/components/orchid/OrchidCard"
 import { orchids } from "@/data/orchids"
 
