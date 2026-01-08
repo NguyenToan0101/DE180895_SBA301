@@ -66,6 +66,7 @@ export function NavigationMenuDemo() {
           gap-150                 /* khoảng cách rõ ràng */
           text-lg                 /* CHỮ TO */
           font-semibold
+          py-4
         ">
         <NavigationMenuItem >
           {/* <NavigationMenuTrigger>Home</NavigationMenuTrigger> */}
@@ -99,7 +100,7 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent> */}
           <NavigationMenuLink
   asChild
-  className={`${navigationMenuTriggerStyle()} px-4 py-3 text-lg`}
+  className={`${navigationMenuTriggerStyle()} px-4 py-3 text-lg `}
 >
             <Link href="/home">Home</Link>
           </NavigationMenuLink>

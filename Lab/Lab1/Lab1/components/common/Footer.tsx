@@ -1,9 +1,13 @@
+import Image from "next/image"
+
 export default function Footer() {
   return (
     <footer className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300">
+      
       <div className="mx-auto max-w-7xl px-6 py-10">
+       
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-
+           
           {/* Brand */}
           <div>
             <h2 className="text-lg font-semibold text-white">
