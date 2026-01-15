@@ -63,9 +63,12 @@ export default function Login({ setUser }) {
 
         {error && <span className="error">{error}</span>}
 
-        <button type="submit">Login</button>
-
-        
+        <div className="button-group">
+          <button type="submit">Login</button>
+          <button type="button" className="btn-cancel" onClick={() => navigate("/")}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

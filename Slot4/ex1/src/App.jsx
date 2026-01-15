@@ -3,8 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import BannerCarousel from "./components/BannerCarousel";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import MainLayout from "./components/MainLayout";
 import Orchid from "./components/Orchid";
 import OrchidDetail from "./components/OrchidDetail";
 import About from "./components/About";
@@ -37,24 +36,20 @@ function AppContent() {
         autoClose={1500}   // 1.5 giây
         hideProgressBar
       />
-      {location.pathname === "/" && <BannerCarousel />}
-      <Header user={user} setUser={setUser} onLogout={handleLogout} />
-
-      <main className="flex-grow-1">
-        <Routes>
+      <BannerCarousel />
+      
+      <Routes>
+        {/* Layout Route - MainLayout sẽ wrap các child routes */}
+        <Route element={<MainLayout user={user} setUser={setUser} onLogout={handleLogout} />}>
           <Route path="/" element={<Orchid orchidList={OrchidsData} />} />
           <Route path="/orchid/:id" element={<OrchidDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-        </Routes>
-      </main>
-
-      <Footer
-        avatar="./images/anhthe.png"
-        name="Nguyễn Công Toàn"
-        email="toan20171020@gmail.com"
-      />
+        </Route>
+        
+        {/* Login route không dùng MainLayout */}
+        <Route path="/login" element={<Login setUser={setUser} />} />
+      </Routes>
     </div>
   );
 }

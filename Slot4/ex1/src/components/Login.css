@@ -62,6 +62,25 @@
   transform: translateY(-1px);
 }
 
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.button-group button {
+  flex: 1;
+  margin-top: 0;
+}
+
+.btn-cancel {
+  background: #64748b !important;
+}
+
+.btn-cancel:hover {
+  background: #475569 !important;
+}
+
 .error {
   color: #fecaca;
   font-size: 13px;

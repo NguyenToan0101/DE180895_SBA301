@@ -83,6 +83,7 @@ function OrchidDetail() {
                 size="lg"
                 className="fw-bold flex-grow-1"
                 style={{ padding: "12px 30px" }}
+                
               >
                 🛒 Add to Cart
               </Button>
