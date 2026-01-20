@@ -1,9 +1,11 @@
 import { Navbar, Container, Nav, Form,Button, Dropdown, Image  } from "react-bootstrap"; // Bỏ Button nếu muốn search live
 import { Link, useSearchParams, useNavigate } from "react-router-dom"; // Import useSearchParams
 import { useState } from "react";
+
 function Header({ user, setUser, onLogout }) {
   // 1. Khai báo hook để thao tác với URL
   const [searchParams, setSearchParams] = useSearchParams();
+  
   const navigate = useNavigate();
 
   // 2. Hàm xử lý khi gõ phím
@@ -22,7 +24,9 @@ function Header({ user, setUser, onLogout }) {
       }
     }
   };
-
+ const handleLogout = () => {
+    setUser(null); localStorage.removeItem("user");window.location.reload();
+  };
   return (
   <Navbar
   expand="lg"
@@ -90,7 +94,7 @@ function Header({ user, setUser, onLogout }) {
               </Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Item
-                onClick={() => setUser(null)}
+                onClick={() => handleLogout()}
                 className="text-danger"
               >
                 🚪 Logout

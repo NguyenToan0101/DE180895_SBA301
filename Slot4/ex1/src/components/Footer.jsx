@@ -1,13 +1,16 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { useContext } from "react";
+import { UserContext } from "../stores/UserContext";
 
-function Footer({ avatar, name, email }) {
+function Footer() {
+  const { user } = useContext(UserContext);
   return (
     <footer className="glass-container mt-5 mx-3 rounded-4">
       <Container>
         <Row className="align-items-center">
           <Col xs="auto">
             <Image
-              src={avatar}
+              src="./images/anhthe.png"
               roundedCircle
               width={50}
               height={50}
@@ -16,12 +19,8 @@ function Footer({ avatar, name, email }) {
             />
           </Col>
           <Col>
-            <h6 className="mb-0 text-black">Tác giả: {name}</h6>
+            <h6 className="mb-0 text-black">Người đang đăng nhập: {user?.name || "Người dùng chưa đăng nhập"}</h6>
             <p className="mb-0 text-black-50 small">All rights reserved</p>
-          </Col>
-          <Col xs="auto" className="ms-auto">
-            <h6 className="mb-0 text-black">Thông tin liên hệ</h6>
-            <p className="mb-0 text-black-50">{email}</p>
           </Col>
         </Row>
       </Container>

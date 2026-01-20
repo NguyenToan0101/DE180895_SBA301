@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -13,7 +13,7 @@ function ListOfOrchids({ orchidList, onShowModal }) {
   const [filterCategory, setFilterCategory] = useState("");
   const [sortType, setSortType] = useState("");
 
-  const getProcessedList = () => {
+  const displayedOrchids = useMemo(() => {
     let processed = [...orchidList];
 
     if (searchText) {
@@ -45,10 +45,12 @@ function ListOfOrchids({ orchidList, onShowModal }) {
       });
     }
     return processed;
-  };
+  }, [orchidList, searchText, filterCategory, sortType]);
 
-  const categories = [...new Set(orchidList.map((orchid) => orchid.category))];
-  const displayedOrchids = getProcessedList();
+  const categories = useMemo(
+    () => [...new Set(orchidList.map((orchid) => orchid.category))],
+    [orchidList]
+  );
 
   return (
     <>

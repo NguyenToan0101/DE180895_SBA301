@@ -8,10 +8,11 @@ import Orchid from "./components/Orchid";
 import OrchidDetail from "./components/OrchidDetail";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import { OrchidsData } from "./data/ListOfOrchidss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserProvider } from "./stores/UserContext";
 
 function AppContent() {
   const [user, setUser] = useState(null);
@@ -33,7 +34,7 @@ function AppContent() {
     <div className="d-flex flex-column min-vh-100">
       <ToastContainer
         position="top-right"
-        autoClose={1500}   // 1.5 giây
+        autoClose={1500}   
         hideProgressBar
       />
       <BannerCarousel />
@@ -47,7 +48,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
         </Route>
         
-        {/* Login route không dùng MainLayout */}
+        
         <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>
     </div>
@@ -57,7 +58,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      <UserProvider>
+        <AppContent />
+      </UserProvider>
     </Router>
   );
 }
