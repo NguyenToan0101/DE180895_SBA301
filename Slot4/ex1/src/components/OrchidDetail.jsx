@@ -1,13 +1,55 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { OrchidsData } from "../data/ListOfOrchidss";
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
+import orchidService from "../services/orchidService";
+import ConfirmModal from "./ConfirmModal";
 import "./OrchidDetail.css";
 
 function OrchidDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  
-  const orchid = OrchidsData.find((item) => item.id === id);
+  const [orchid, setOrchid] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  useEffect(() => {
+    // Fetch orchid data by ID
+    orchidService.getById(id)
+      .then((res) => {
+        setOrchid(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching orchid detail:", err);
+        toast.error("Không thể tải dữ liệu hoa lan");
+        setLoading(false);
+      });
+  }, [id]);
+
+  const handleDeleteConfirm = () => {
+    setShowDeleteModal(false);
+    orchidService.delete(orchid.id)
+      .then(() => {
+        toast.success(`"${orchid.orchidName}" đã được xóa thành công! 🗑️`);
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((err) => {
+        console.error("Error deleting orchid:", err);
+        toast.error("Có lỗi khi xóa hoa lan. Vui lòng thử lại!");
+      });
+  };
+
+  if (loading) {
+    return (
+      <Container className="py-5 text-center">
+        <Spinner animation="border" variant="warning" className="me-3" />
+        <h5 className="text-white mt-3">Đang tải...</h5>
+      </Container>
+    );
+  }
 
   if (!orchid) {
     return (
@@ -60,7 +102,7 @@ function OrchidDetail() {
               <h6 className="text-info fw-bold mb-2" style={{ fontSize: "0.9rem", letterSpacing: "1px" }}>
                 CATEGORY
               </h6>
-              <p className="fs-5 mb-0 text-black">{orchid.category}</p>
+              <p className="fs-5 mb-0 text-black">{orchid.category.name}</p>
             </div>
 
             <div className="orchid-section">
@@ -79,13 +121,22 @@ function OrchidDetail() {
 
             <div className="d-flex gap-3 mt-5">
               <Button
-                variant="warning"
+                variant="success"
                 size="lg"
-                className="fw-bold flex-grow-1"
+                className="fw-bold"
+                onClick={() => navigate(`/edit-orchid/${orchid.id}`)}
                 style={{ padding: "12px 30px" }}
-                
               >
-                🛒 Add to Cart
+                ✏️ Update
+              </Button>
+              <Button
+                variant="danger"
+                size="lg"
+                className="fw-bold"
+                onClick={() => setShowDeleteModal(true)}
+                style={{ padding: "12px 30px" }}
+              >
+                🗑️ Delete
               </Button>
               <Button
                 variant="outline-light"
@@ -100,6 +151,14 @@ function OrchidDetail() {
           </div>
         </Col>
       </Row>
+
+      <ConfirmModal
+        show={showDeleteModal}
+        handleClose={() => setShowDeleteModal(false)}
+        title="Xác nhận xóa"
+        body={`Bạn có chắc chắn muốn xóa "${orchid?.orchidName}" không? Hành động này không thể hoàn tác!`}
+        onConfirm={handleDeleteConfirm}
+      />
     </Container>
   );
 }

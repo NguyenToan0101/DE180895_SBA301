@@ -16,9 +16,9 @@ function Orchid({ orchidList }) {
         <h1 className="text-white mb-5 text-center">🌺 Our Beautiful Orchids Collection</h1>
         <ListOfOrchids orchidList={orchidList} onShowModal={handleShowDetail} />
       </Container>
-      <div className="text-center my-4">
+      {/* <div className="text-center my-4">
         <TestCount />
-      </div>
+      </div> */}
     </div>
   );
 }

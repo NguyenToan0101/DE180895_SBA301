@@ -1,0 +1,164 @@
+.orchid-page-bg {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background:
+    radial-gradient(at 20% 30%, #fb7185 0%, transparent 50%),
+    radial-gradient(at 80% 20%, #f97316 0%, transparent 50%),
+    radial-gradient(at 50% 80%, #c4b5fd 0%, transparent 50%),
+    #0f172a;
+}
+
+.create-orchid-card {
+  border-radius: 20px;
+  overflow: hidden;
+  /* Glass Morphism Effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.create-orchid-card .card-header {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+}
+
+.create-orchid-card .card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-orchid-card .card-body {
+  padding: 2rem;
+}
+
+.create-orchid-card .form-label {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-orchid-card .form-control,
+.create-orchid-card .form-select {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+.create-orchid-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.create-orchid-card .form-control:focus,
+.create-orchid-card .form-select:focus {
+  border-color: rgba(102, 126, 234, 0.8);
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25), inset 0 0 20px rgba(102, 126, 234, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.create-orchid-card .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.create-orchid-card .form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.create-orchid-card .form-check-input {
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-orchid-card .form-check-input:checked {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: rgba(102, 126, 234, 0.8);
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+}
+
+.create-orchid-card .form-check-label {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.create-orchid-card .image-preview {
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.create-orchid-card .image-preview:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.create-orchid-card .image-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.create-orchid-card .btn-success {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  font-weight: 600;
+  padding: 0.85rem;
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.create-orchid-card .btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5568d3 0%, #6a3d94 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.create-orchid-card .btn-success:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.create-orchid-card .btn-outline-secondary {
+  font-weight: 600;
+  padding: 0.85rem;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.create-orchid-card .btn-outline-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  transform: translateY(-2px);
+}

@@ -8,6 +8,8 @@ import Orchid from "./components/Orchid";
 import OrchidDetail from "./components/OrchidDetail";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import CreateOrchid from "./components/CreateOrchid";
+import EditOrchid from "./components/EditOrchid";
 import Login from "./pages/Login";
 import { OrchidsData } from "./data/ListOfOrchidss";
 import { ToastContainer } from "react-toastify";
@@ -48,6 +50,9 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
         </Route>
         
+        {/* Create Orchid Route - không nằm trong MainLayout */}
+        <Route path="/create-orchid" element={<CreateOrchid />} />
+        <Route path="/edit-orchid/:id" element={<EditOrchid />} />
         
         <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>

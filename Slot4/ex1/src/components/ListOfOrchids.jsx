@@ -1,17 +1,36 @@
-import { useState, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 import FilterSort from "./FilterSort";
+// import api from "../api/api";
+import orchidService from "../services/orchidService";
+import "./ListOfOrchids.css";
 
-function ListOfOrchids({ orchidList, onShowModal }) {
+function ListOfOrchids({ onShowModal }) {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const searchText = searchParams.get("q") || "";
 
+  const [orchidList, setOrchidList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filterCategory, setFilterCategory] = useState("");
   const [sortType, setSortType] = useState("");
+
+  // Fetch data từ db.json
+  useEffect(() => {
+    orchidService.getAll().then(res => {
+      console.log("DataList " +res.data)
+      setOrchidList(res.data);
+      setLoading(false);
+    }).catch(err => {
+      console.error("Error fetching orchids:", err);
+      setLoading(false);
+    });
+  }, []);
 
   const displayedOrchids = useMemo(() => {
     let processed = [...orchidList];
@@ -24,7 +43,7 @@ function ListOfOrchids({ orchidList, onShowModal }) {
 
     if (filterCategory) {
       processed = processed.filter(
-        (orchid) => orchid.category === filterCategory
+        (orchid) => orchid.category.name === filterCategory
       );
     }
 
@@ -48,12 +67,24 @@ function ListOfOrchids({ orchidList, onShowModal }) {
   }, [orchidList, searchText, filterCategory, sortType]);
 
   const categories = useMemo(
-    () => [...new Set(orchidList.map((orchid) => orchid.category))],
+    () => [...new Set(orchidList.map((orchid) => orchid.category.name))],
     [orchidList]
   );
 
   return (
     <>
+      <Container className="my-4">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h3 className="text-white mb-0">Danh sách hoa lan</h3>
+          <Button
+            className="create-btn-glass fw-bold"
+            onClick={() => navigate("/create-orchid")}
+          >
+            ➕ Tạo Hoa Lan Mới
+          </Button>
+        </div>
+      </Container>
+
       <FilterSort
         categories={categories}
         onFilterChange={setFilterCategory}

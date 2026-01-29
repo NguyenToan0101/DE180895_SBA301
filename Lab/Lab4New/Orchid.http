@@ -1,0 +1,36 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+GET http://localhost:8080/orchids/
+
+
+### Create Orchid 1
+POST http://localhost:8080/orchids/
+Content-Type: application/json
+
+{
+  "orchidName": "Hồ điệp trắng",
+  "natural": true,
+  "orchidDescription": "Hoa lan hồ điệp màu trắng tinh khiết",
+  "orchidCategory": "Phalaenopsis",
+  "attractive": true,
+  "orchidURl": "https://example.com/ho-diep-trang.jpg"
+}
+
+
+###
+DELETE http://localhost:8080/orchids/5
+
+###
+PUT http://localhost:8080/orchids/
+
+###
+GET http://localhost:8080/orchids/2
+
+###
+POST http://localhost:8080/orchids/categories
+
+###
+GET http://localhost:8080/orchids/99
