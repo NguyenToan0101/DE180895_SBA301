@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1000.0"
+    style="-fx-background-color: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);"
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="controller.StudentController">
+
+   <children>
+      <VBox alignment="TOP_CENTER" spacing="0"
+            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+         <!-- ═══════════ HEADER BAR ═══════════ -->
+         <HBox alignment="CENTER_LEFT" spacing="16"
+               style="-fx-background-color: rgba(255,255,255,0.05);
+                      -fx-border-color: rgba(255,255,255,0.08);
+                      -fx-border-width: 0 0 1 0;
+                      -fx-padding: 18 36 18 36;">
+            <children>
+               <!-- Icon badge -->
+               <Label text="🎓"
+                      style="-fx-font-size: 28;" />
+               <VBox spacing="2">
+                  <children>
+                     <Label text="STUDENT DATABASE SYSTEM"
+                            style="-fx-font-size: 20; -fx-font-weight: bold;
+                                   -fx-text-fill: white;
+                                   -fx-font-family: 'Segoe UI';" />
+                     <Label text="Manage student records with ease"
+                            style="-fx-font-size: 11; -fx-text-fill: rgba(255,255,255,0.45);
+                                   -fx-font-family: 'Segoe UI';" />
+                  </children>
+               </VBox>
+               <Region HBox.hgrow="ALWAYS" />
+               <Label text="● LIVE"
+                      style="-fx-font-size: 11; -fx-text-fill: #2ecc71;
+                             -fx-background-color: rgba(46,204,113,0.15);
+                             -fx-background-radius: 20;
+                             -fx-padding: 4 12 4 12;" />
+            </children>
+         </HBox>
+
+         <!-- ═══════════ MAIN CONTENT ═══════════ -->
+         <HBox spacing="24" VBox.vgrow="ALWAYS">
+            <padding><Insets top="28" right="32" bottom="28" left="32" /></padding>
+            <children>
+
+               <!-- ──────── LEFT PANEL: FORM ──────── -->
+               <VBox spacing="0" minWidth="310" maxWidth="340"
+                     style="-fx-background-color: rgba(255,255,255,0.06);
+                            -fx-background-radius: 20;
+                            -fx-border-color: rgba(255,255,255,0.1);
+                            -fx-border-radius: 20;
+                            -fx-border-width: 1;
+                            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 30, 0, 0, 8);">
+                  <children>
+
+                     <!-- Form Header -->
+                     <VBox style="-fx-background-color: linear-gradient(to right, #6c63ff, #3ecff3);
+                                  -fx-background-radius: 20 20 0 0;
+                                  -fx-padding: 20 24 20 24;">
+                        <children>
+                           <Label text="✏  Student Information"
+                                  style="-fx-font-size: 15; -fx-font-weight: bold;
+                                         -fx-text-fill: white; -fx-font-family: 'Segoe UI';" />
+                           <Label text="Fill in all fields below"
+                                  style="-fx-font-size: 11; -fx-text-fill: rgba(255,255,255,0.7);
+                                         -fx-font-family: 'Segoe UI';" />
+                        </children>
+                     </VBox>
+
+                     <!-- Form Fields -->
+                     <VBox spacing="14" style="-fx-padding: 22 24 18 24;">
+                        <children>
+
+                           <!-- Email -->
+                           <VBox spacing="5">
+                              <children>
+                                 <Label text="EMAIL ADDRESS"
+                                        style="-fx-font-size: 10; -fx-font-weight: bold;
+                                               -fx-text-fill: rgba(255,255,255,0.5);
+                                               -fx-font-family: 'Segoe UI';" />
+                                 <TextField fx:id="txtEmail" promptText="name@example.com"
+                                            style="-fx-background-color: rgba(255,255,255,0.08);
+                                                   -fx-text-fill: white;
+                                                   -fx-prompt-text-fill: rgba(255,255,255,0.3);
+                                                   -fx-background-radius: 10;
+                                                   -fx-border-color: rgba(255,255,255,0.15);
+                                                   -fx-border-radius: 10;
+                                                   -fx-padding: 10 14;
+                                                   -fx-font-size: 13;
+                                                   -fx-font-family: 'Segoe UI';" />
+                              </children>
+                           </VBox>
+
+                           <!-- Password -->
+                           <VBox spacing="5">
+                              <children>
+                                 <Label text="PASSWORD"
+                                        style="-fx-font-size: 10; -fx-font-weight: bold;
+                                               -fx-text-fill: rgba(255,255,255,0.5);
+                                               -fx-font-family: 'Segoe UI';" />
+                                 <PasswordField fx:id="txtPassword"
+                                               style="-fx-background-color: rgba(255,255,255,0.08);
+                                                      -fx-text-fill: white;
+                                                      -fx-prompt-text-fill: rgba(255,255,255,0.3);
+                                                      -fx-background-radius: 10;
+                                                      -fx-border-color: rgba(255,255,255,0.15);
+                                                      -fx-border-radius: 10;
+                                                      -fx-padding: 10 14;
+                                                      -fx-font-size: 13;
+                                                      -fx-font-family: 'Segoe UI';" />
+                              </children>
+                           </VBox>
+
+                           <!-- First Name & Last Name -->
+                           <HBox spacing="12">
+                              <children>
+                                 <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label text="FIRST NAME"
+                                              style="-fx-font-size: 10; -fx-font-weight: bold;
+                                                     -fx-text-fill: rgba(255,255,255,0.5);
+                                                     -fx-font-family: 'Segoe UI';" />
+                                       <TextField fx:id="txtFirstName" promptText="First"
+                                                  style="-fx-background-color: rgba(255,255,255,0.08);
+                                                         -fx-text-fill: white;
+                                                         -fx-prompt-text-fill: rgba(255,255,255,0.3);
+                                                         -fx-background-radius: 10;
+                                                         -fx-border-color: rgba(255,255,255,0.15);
+                                                         -fx-border-radius: 10;
+                                                         -fx-padding: 10 14;
+                                                         -fx-font-size: 13;
+                                                         -fx-font-family: 'Segoe UI';" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label text="LAST NAME"
+                                              style="-fx-font-size: 10; -fx-font-weight: bold;
+                                                     -fx-text-fill: rgba(255,255,255,0.5);
+                                                     -fx-font-family: 'Segoe UI';" />
+                                       <TextField fx:id="txtLastName" promptText="Last"
+                                                  style="-fx-background-color: rgba(255,255,255,0.08);
+                                                         -fx-text-fill: white;
+                                                         -fx-prompt-text-fill: rgba(255,255,255,0.3);
+                                                         -fx-background-radius: 10;
+                                                         -fx-border-color: rgba(255,255,255,0.15);
+                                                         -fx-border-radius: 10;
+                                                         -fx-padding: 10 14;
+                                                         -fx-font-size: 13;
+                                                         -fx-font-family: 'Segoe UI';" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+
+                           <!-- Marks -->
+                           <VBox spacing="5">
+                              <children>
+                                 <Label text="MARKS  (0.0 – 10.0)"
+                                        style="-fx-font-size: 10; -fx-font-weight: bold;
+                                               -fx-text-fill: rgba(255,255,255,0.5);
+                                               -fx-font-family: 'Segoe UI';" />
+                                 <TextField fx:id="txtMarks" promptText="e.g. 8.5"
+                                            style="-fx-background-color: rgba(255,255,255,0.08);
+                                                   -fx-text-fill: white;
+                                                   -fx-prompt-text-fill: rgba(255,255,255,0.3);
+                                                   -fx-background-radius: 10;
+                                                   -fx-border-color: rgba(255,255,255,0.15);
+                                                   -fx-border-radius: 10;
+                                                   -fx-padding: 10 14;
+                                                   -fx-font-size: 13;
+                                                   -fx-font-family: 'Segoe UI';" />
+                              </children>
+                           </VBox>
+
+                        </children>
+                     </VBox>
+
+                     <!-- Divider -->
+                     <Region style="-fx-background-color: rgba(255,255,255,0.08); -fx-pref-height: 1;" />
+
+                     <!-- Action Buttons -->
+                     <VBox spacing="10" style="-fx-padding: 18 24 24 24;">
+                        <children>
+
+                           <Button text="＋  ADD NEW STUDENT" maxWidth="1.7976931348623157E308"
+                                   onAction="#handleAddStudent"
+                                   style="-fx-background-color: linear-gradient(to right, #6c63ff, #3ecff3);
+                                          -fx-text-fill: white; -fx-font-weight: bold;
+                                          -fx-font-size: 13; -fx-font-family: 'Segoe UI';
+                                          -fx-background-radius: 12;
+                                          -fx-padding: 13 0;
+                                          -fx-cursor: hand;
+                                          -fx-effect: dropshadow(gaussian, rgba(108,99,255,0.5), 12, 0, 0, 4);" />
+
+                           <HBox spacing="10">
+                              <children>
+                                 <Button text="⟳  UPDATE" maxWidth="1.7976931348623157E308"
+                                         HBox.hgrow="ALWAYS"
+                                         onAction="#handleUpdateStudent"
+                                         style="-fx-background-color: rgba(52,152,219,0.85);
+                                                -fx-text-fill: white; -fx-font-weight: bold;
+                                                -fx-font-size: 12; -fx-font-family: 'Segoe UI';
+                                                -fx-background-radius: 12;
+                                                -fx-padding: 11 0;
+                                                -fx-cursor: hand;" />
+                                 <Button text="✕  DELETE" maxWidth="1.7976931348623157E308"
+                                         HBox.hgrow="ALWAYS"
+                                         onAction="#handleDeleteStudent"
+                                         style="-fx-background-color: rgba(231,76,60,0.85);
+                                                -fx-text-fill: white; -fx-font-weight: bold;
+                                                -fx-font-size: 12; -fx-font-family: 'Segoe UI';
+                                                -fx-background-radius: 12;
+                                                -fx-padding: 11 0;
+                                                -fx-cursor: hand;" />
+                              </children>
+                           </HBox>
+
+                           <Button text="↺  Clear Fields" maxWidth="1.7976931348623157E308"
+                                   onAction="#clearForm"
+                                   style="-fx-background-color: rgba(255,255,255,0.07);
+                                          -fx-text-fill: rgba(255,255,255,0.55);
+                                          -fx-font-size: 12; -fx-font-family: 'Segoe UI';
+                                          -fx-background-radius: 12;
+                                          -fx-border-color: rgba(255,255,255,0.12);
+                                          -fx-border-radius: 12;
+                                          -fx-padding: 10 0;
+                                          -fx-cursor: hand;" />
+
+                        </children>
+                     </VBox>
+
+                  </children>
+               </VBox>
+
+               <!-- ──────── RIGHT PANEL: TABLE ──────── -->
+               <VBox spacing="0" HBox.hgrow="ALWAYS"
+                     style="-fx-background-color: rgba(255,255,255,0.06);
+                            -fx-background-radius: 20;
+                            -fx-border-color: rgba(255,255,255,0.1);
+                            -fx-border-radius: 20;
+                            -fx-border-width: 1;
+                            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 30, 0, 0, 8);">
+                  <children>
+
+                     <!-- Table Header -->
+                     <HBox alignment="CENTER_LEFT" spacing="12"
+                           style="-fx-background-color: rgba(255,255,255,0.05);
+                                  -fx-background-radius: 20 20 0 0;
+                                  -fx-padding: 18 24 18 24;
+                                  -fx-border-color: rgba(255,255,255,0.08);
+                                  -fx-border-width: 0 0 1 0;">
+                        <children>
+                           <Label text="📋"
+                                  style="-fx-font-size: 18;" />
+                           <VBox spacing="2">
+                              <children>
+                                 <Label text="All Students"
+                                        style="-fx-font-size: 15; -fx-font-weight: bold;
+                                               -fx-text-fill: white; -fx-font-family: 'Segoe UI';" />
+                                 <Label text="Click any row to select"
+                                        style="-fx-font-size: 11;
+                                               -fx-text-fill: rgba(255,255,255,0.4);
+                                               -fx-font-family: 'Segoe UI';" />
+                              </children>
+                           </VBox>
+                        </children>
+                     </HBox>
+
+                     <!-- TableView -->
+                     <TableView fx:id="studentTable" VBox.vgrow="ALWAYS"
+                                style="-fx-background-color: transparent;
+                                       -fx-background-radius: 0 0 20 20;
+                                       -fx-border-color: transparent;
+                                       -fx-table-cell-border-color: rgba(255,255,255,0.05);
+                                       -fx-control-inner-background: transparent;
+                                       -fx-text-fill: white;
+                                       -fx-font-family: 'Segoe UI';
+                                       -fx-font-size: 13;">
+                        <columns>
+                           <TableColumn fx:id="idColumn"        prefWidth="55"  text="ID" />
+                           <TableColumn fx:id="emailColumn"     prefWidth="220" text="Email" />
+                           <TableColumn fx:id="firstNameColumn" prefWidth="130" text="First Name" />
+                           <TableColumn fx:id="lastNameColumn"  prefWidth="130" text="Last Name" />
+                           <TableColumn fx:id="marksColumn"     prefWidth="80"  text="Marks" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                     </TableView>
+
+                  </children>
+               </VBox>
+
+            </children>
+         </HBox>
+
+      </VBox>
+   </children>
+</AnchorPane>

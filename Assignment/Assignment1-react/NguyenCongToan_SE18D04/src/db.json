@@ -1,0 +1,94 @@
+{
+  "systemAccounts": [
+    { "accountID": 1, "accountName": "Admin", "accountEmail": "admin@fun.edu.vn", "accountRole": 1, "accountPassword": "Admin" },
+    { "accountID": 2, "accountName": "Staff", "accountEmail": "staff1@fun.edu.vn", "accountRole": 2, "accountPassword": "Staff" }
+  ],
+  "categories": [
+    { "categoryID": 1, "categoryName": "Thông báo", "categoryDescription": "Các thông báo quan trọng từ nhà trường", "parentCategoryID": null, "isActive": true },
+    { "categoryID": 2, "categoryName": "Học bổng", "categoryDescription": "Thông tin về các chương trình học bổng", "parentCategoryID": null, "isActive": true },
+    { "categoryID": 3, "categoryName": "Hoạt động", "categoryDescription": "Các hoạt động ngoại khóa và sự kiện", "parentCategoryID": null, "isActive": true },
+    { "categoryID": 4, "categoryName": "Cuộc thi", "categoryDescription": "Thông tin cuộc thi và cuộc thi kỹ năng", "parentCategoryID": 3, "isActive": true },
+    { "categoryID": 5, "categoryName": "Tuyển sinh", "categoryDescription": "Thông tin tuyển sinh và nhập học", "parentCategoryID": null, "isActive": true }
+  ],
+  "newsArticles": [
+    {
+      "newsArticleID": 1,
+      "newsTitle": "Lịch học kỳ 2 năm học 2025-2026",
+      "headline": "Thông báo lịch học kỳ chính thức",
+      "createdDate": "2026-02-01T08:00:00Z",
+      "newsContent": "Kỳ học thứ 2 sẽ bắt đầu từ ngày 15 tháng 2 năm 2026. Các sinh viên vui lòng chuẩn bị sẵn sàng...",
+      "newsSource": "Phòng Đào tạo",
+      "categoryID": 1,
+      "newsStatus": 1,
+      "createdByID": 1,
+      "updatedByID": null,
+      "modifiedDate": null
+    },
+    {
+      "newsArticleID": 2,
+      "newsTitle": "Mở thêm chương trình học bổng toàn phần",
+      "headline": "Cơ hội nhận học bổng cho sinh viên xuất sắc",
+      "createdDate": "2026-02-02T10:30:00Z",
+      "newsContent": "Trường thông báo mở thêm 50 chương trình học bổng toàn phần cho sinh viên năm nhất có GPA từ 3.5 trở lên...",
+      "newsSource": "Phòng Tài chính",
+      "categoryID": 2,
+      "newsStatus": 1,
+      "createdByID": 2,
+      "updatedByID": null,
+      "modifiedDate": null
+    },
+    {
+      "newsArticleID": 3,
+      "newsTitle": "Cuộc thi Lập trình Web 2026",
+      "headline": "Đây là cuộc thi lập trình web lớn nhất năm nay",
+      "createdDate": "2026-02-03T09:15:00Z",
+      "newsContent": "Cuộc thi lập trình web sẽ diễn ra vào tháng 3 với tổng giải thưởng 100 triệu đồng. Các đội có 3-4 thành viên...",
+      "newsSource": "Khoa Công nghệ",
+      "categoryID": 4,
+      "newsStatus": 1,
+      "createdByID": 1,
+      "updatedByID": null,
+      "modifiedDate": null
+    },
+    {
+      "newsArticleID": 4,
+      "newsTitle": "Lễ khai giảng năm học mới",
+      "headline": "Tham dự lễ khai giảng hoặc xem trực tuyến",
+      "createdDate": "2026-01-28T14:00:00Z",
+      "newsContent": "Lễ khai giảng sẽ được tổ chức vào ngày 1 tháng 2 tại sân vận động chính. Tất cả sinh viên và phụ huynh đều...",
+      "newsSource": "Ban Quản lý",
+      "categoryID": 3,
+      "newsStatus": 1,
+      "createdByID": 1,
+      "updatedByID": null,
+      "modifiedDate": null
+    },
+    {
+      "newsArticleID": 5,
+      "newsTitle": "Hướng dẫn đăng ký học phần online",
+      "headline": "Cách thức đăng ký và các lưu ý quan trọng",
+      "createdDate": "2026-02-01T11:20:00Z",
+      "newsContent": "Các sinh viên vui lòng đăng ký học phần trước ngày 28 tháng 2. Hạn chót đăng ký là 23h59 ngày hôm đó...",
+      "newsSource": "Phòng Đào tạo",
+      "categoryID": 1,
+      "newsStatus": 1,
+      "createdByID": 2,
+      "updatedByID": null,
+      "modifiedDate": null
+    }
+  ],
+  "tags": [
+    { "tagID": 1, "tagName": "Khẩn cấp", "note": "Những thông báo cần chú ý ngay" },
+    { "tagID": 2, "tagName": "Cơ hội", "note": "Các cơ hội học bổng và tài trợ" },
+    { "tagID": 3, "tagName": "Cuộc thi", "note": "Các cuộc thi và thi đua" },
+    { "tagID": 4, "tagName": "Sự kiện", "note": "Các sự kiện và hoạt động" },
+    { "tagID": 5, "tagName": "Hướng dẫn", "note": "Hướng dẫn và quy định" }
+  ],
+  "newsTags": [
+    { "newsArticleID": 1, "tagID": 5 },
+    { "newsArticleID": 2, "tagID": 2 },
+    { "newsArticleID": 3, "tagID": 3 },
+    { "newsArticleID": 4, "tagID": 4 },
+    { "newsArticleID": 5, "tagID": 5 }
+  ]
+}
